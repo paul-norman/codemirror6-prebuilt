@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic C++ Example</title>
+	
+	<script src="../dist/cpp.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">#include <iostream>
+
+int main() {
+    std::cout << "Hello World!";
+    return 0;
+}</textarea>
+</body>
+</html>

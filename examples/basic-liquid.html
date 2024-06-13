@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic Liquid Example</title>
+	
+	<script src="../dist/liquid.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">{{ page.title }}
+
+{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+
+{% if product.title == "Awesome Shoes" %}
+	These shoes are awesome!
+{% endif %}
+
+{% for product in collection.products %}
+	{{ product.title }}
+{% endfor %}</textarea>
+</body>
+</html>

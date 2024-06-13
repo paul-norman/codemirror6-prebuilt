@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic Vue Example</title>
+	
+	<script src="../dist/vue.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor"><!--
+Say Hello World with Vue!
+-->
+
+<script setup>
+import { ref } from 'vue'
+
+// A "ref" is a reactive data source that stores a value.
+const message = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ message }}</h1>
+</template></textarea>
+</body>
+</html>

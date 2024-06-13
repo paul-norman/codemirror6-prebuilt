@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic WebAssembly Example</title>
+	
+	<script src="../dist/wast.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">/* Example WebAssembly */
+(module $foo
+ (export "fac" (func $fac))
+ (export "plus" (func $plus))
+
+ (func $fac (type $t0) (param $p0 i64) (result i64)
+    (if $I0 (result i64)
+      (i64.lt_s
+        (local.get $p0)
+        (i64.const 1))
+      (then
+        (i64.const 1))
+      (else
+        (i64.mul
+          (local.get $p0)</textarea>
+</body>
+</html>

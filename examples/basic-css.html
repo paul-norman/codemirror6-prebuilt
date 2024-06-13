@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic CSS Example</title>
+	
+	<script src="../dist/css.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">body {
+	background-image: url("https://mdn.mozillademos.org/files/11983/starsolid.gif");
+	background-repeat: repeat-y;
+}</textarea>
+</body>
+</html>

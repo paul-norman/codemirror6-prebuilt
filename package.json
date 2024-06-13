@@ -1,0 +1,55 @@
+{
+	"name": "codemirror6-prebuilt",
+	"description": "Pre-built bundles for CodeMirror 6 languages",
+	"version": "1.0.0",
+	"author": {
+		"name": "Paul Norman",
+		"url": "https://github.com/paul-norman"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/paul-norman/codemirror6-prebuilt.git"
+	},
+	"keywords": [
+		"CodeMirror",
+		"CodeMirror 6",
+		"CodeMirror 6 HTML Bundle",
+		"CodeMirror 6 JavaScript Bundle",
+		"CodeMirror 6 CSS Bundle"
+	],
+	"type": "module",
+	"license": "MIT",
+	"scripts": {
+		"build": "node ./build.js",
+		"watch": "node ./build.js watch"
+	},
+	"dependencies": {
+		"@codemirror/commands": "^6.6.0",
+		"@codemirror/lang-angular": "^0.1.3",
+		"@codemirror/lang-cpp": "^6.0.2",
+		"@codemirror/lang-css": "^6.2.1",
+		"@codemirror/lang-go": "^6.0.1",
+		"@codemirror/lang-html": "^6.4.9",
+		"@codemirror/lang-java": "^6.0.1",
+		"@codemirror/lang-javascript": "^6.2.2",
+		"@codemirror/lang-json": "^6.0.1",
+		"@codemirror/lang-less": "^6.0.2",
+		"@codemirror/lang-liquid": "^6.2.1",
+		"@codemirror/lang-markdown": "^6.2.5",
+		"@codemirror/lang-php": "^6.0.1",
+		"@codemirror/lang-python": "^6.1.6",
+		"@codemirror/lang-rust": "^6.0.1",
+		"@codemirror/lang-sass": "^6.0.2",
+		"@codemirror/lang-sql": "^6.6.4",
+		"@codemirror/lang-vue": "^0.1.3",
+		"@codemirror/lang-wast": "^6.0.2",
+		"@codemirror/lang-xml": "^6.1.0",
+		"@codemirror/lang-yaml": "^6.1.1",
+		"@codemirror/search": "^6.5.6",
+		"@codemirror/state": "^6.4.1",
+		"@codemirror/theme-one-dark": "^6.1.2",
+		"@codemirror/view": "^6.28.1",
+		"codemirror": "^6.0.1",
+		"esbuild": "^0.21.4"
+	}
+}

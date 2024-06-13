@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic GoLang Example</title>
+	
+	<script src="../dist/go.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("hello world")
+}</textarea>
+</body>
+</html>

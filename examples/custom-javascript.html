@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Custom JS Example</title>
+	
+	<script src="../dist/javascript-custom.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			let editors = document.querySelectorAll('.codemirror');
+
+			if (editors) {
+				editors.forEach(function(editor) {
+					const options = {};
+
+					if (editor.classList.contains('dark')) {
+						options.dark = true;
+					}
+
+					cm6.load().textarea(editor, options);
+				});
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<h2>Dark (textarea)</h2>
+
+    <textarea class="codemirror dark">import { createServer } from 'node:http';
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'text/plain');
+	res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});</textarea>
+
+<h2>Light (textarea)</h2>
+
+<textarea class="codemirror">import { createServer } from 'node:http';
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'text/plain');
+	res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});</textarea>
+
+<h2>Light (div)</h2>
+
+<div class="codemirror">import { createServer } from 'node:http';
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'text/plain');
+	res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic Rust Example</title>
+	
+	<script src="../dist/rust.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">// This is the main function.
+fn main() {
+	let hello: &'static str = "Hello, world!";
+
+	// Print text to the console.
+	println!("{}", hello);
+}</textarea>
+</body>
+</html>

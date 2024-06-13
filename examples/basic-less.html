@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic LESS Example</title>
+	
+	<script src="../dist/less.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'));
+		});
+	</script>
+</head>
+
+<body>
+    <textarea id="editor">// Variables
+@themes:			"../../src/themes";
+@link-color:		#428bca; // sea blue
+@link-color-hover:	darken(@link-color, 10%);
+
+@import "@{themes}/tidal-wave.less";
+
+// Usage
+a,
+.link {
+	color: @link-color;
+}
+a:hover {
+	color: @link-color-hover;
+}
+
+nav ul {
+	&:extend(.inline);
+	background: blue;
+}
+.inline {
+	color: red;
+}
+
+p, a, ul, li {
+	border-top: 2px dotted #366;
+	& + & {
+		border-top: 0;
+	}
+}</textarea>
+</body>
+</html>
