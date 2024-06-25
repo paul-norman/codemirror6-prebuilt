@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Extension HTML Example</title>
+	
+	<script src="../dist/html-extension.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const view = cm6.load().textarea(document.getElementById('editor'), { lineWrapping: true });
+		});
+	</script>
+</head>
+
+<body>
+	<textarea id="editor"><!DOCTYPE html>
+<html>
+    <head>
+        <title>Spin Blocks and Variables</title>
+    </head>
+    <body>
+        <p class="test">This is a {{good|short|fun}} example of HTML with custom {variable} highlighting and spin block features. Any {number} of variables {may} {be} {highlighted}.</p>
+
+        <p>{{Spin blocks may be used|You can use spin blocks}} too. Spin blocks {{are {variable} friendly|are safe with {variable} arguments}}.</p>
+    </body>
+</html></textarea>
+</body>
+</html>

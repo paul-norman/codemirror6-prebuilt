@@ -79,7 +79,7 @@ node ./build.js watch
 npm run watch
 ```
 
-To only build / watch certain languages, just include the name(s) after the command:
+To only build / watch certain src files, just include the name(s) after the command:
 
 ```
 npm run build php
