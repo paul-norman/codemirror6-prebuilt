@@ -1,56 +1,61 @@
 import * as esbuild	from 'esbuild';
 import fs from 'fs';
 
-const options = { watch: false };
-const args = process.argv.slice(2);
+const options	= { watch: false };
+let args		= process.argv.slice(2);
+args			= args.map(arg => arg.toLowerCase());
+
 if (args.includes('watch')) {
 	options.watch = true;
+	args.splice(args.indexOf('watch'), 1);
 }
 
 const buildInstructions = [];
 fs.readdirSync('./src').forEach(file => {
 	if (file.indexOf('_') !== 0) {
-		const fileUncompressed = async function() {
-			const config = {
-				entryPoints:	[`./src/${file}`],
-				bundle:			true,
-				logLevel:		'info',
-				globalName:		'cm6',
-				sourcemap:		'external',
-				outfile:		`./dist/${file}`,
-			};
-			
-			if (options.watch) {
-				let ctx = await esbuild.context(config);
-				await ctx.watch();
-				console.log(`Watching ${file}...`);
-			} else {
-				await esbuild.build(config);
-			}
-		}
-		
-		const fileMinified = async function() {
-			const config = {
-				entryPoints:	[`./src/${file}`],
-				minify:			true,
-				bundle:			true,
-				logLevel:		'info',
-				globalName:		'cm6',
-				sourcemap:		'external',
-				outfile:		`./dist/${file.replace('.js', '.min.js')}`,
-			};
-			
-			if (options.watch) {
-				let ctx = await esbuild.context(config);
-				await ctx.watch();
-				console.log(`Watching ${file}...`);
-			} else {
-				await esbuild.build(config);
-			}
-		}
+		if (args.length === 0 || args.includes(file.substring(0, file.length - 3))) {
+			const fileUncompressed = async function() {
+				const config = {
+					entryPoints:	[`./src/${file}`],
+					bundle:			true,
+					logLevel:		'info',
+					globalName:		'cm6',
+					sourcemap:		'external',
+					outfile:		`./dist/${file}`,
+				};
 
-		buildInstructions.push(fileUncompressed);
-		buildInstructions.push(fileMinified);
+				if (options.watch) {
+					let ctx = await esbuild.context(config);
+					await ctx.watch();
+					console.log(`Watching ${file}...`);
+				} else {
+					await esbuild.build(config);
+				}
+			}
+
+			const fileMinified = async function() {
+				const config = {
+					entryPoints:	[`./src/${file}`],
+					minify:			true,
+					bundle:			true,
+					logLevel:		'info',
+					globalName:		'cm6',
+					sourcemap:		'external',
+					outfile:		`./dist/${file.replace('.js', '.min.js')}`,
+				};
+
+				if (options.watch) {
+					let ctx = await esbuild.context(config);
+					await ctx.watch();
+					console.log(`Watching ${file}...`);
+				} else {
+					await esbuild.build(config);
+				}
+			}
+
+			buildInstructions.push(fileUncompressed);
+			buildInstructions.push(fileMinified);
+		}
 	}
 });
 

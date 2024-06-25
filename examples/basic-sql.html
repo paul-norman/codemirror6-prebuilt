@@ -13,14 +13,14 @@
 </head>
 
 <body>
-    <textarea id="editor">WITH employee_ranking AS (
+	<textarea id="editor">WITH employee_ranking AS (
 	SELECT
 		employee_id,
 		last_name,
 		first_name,
 		salary,
 		dept_id
-		RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) as ranking
+		RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS ranking
 	FROM employee
 )
 

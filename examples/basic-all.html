@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic All Languages Example</title>
+	
+	<script src="../dist/all.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			let editors = document.querySelectorAll('.codemirror');
+
+			if (editors) {
+				editors.forEach(function(editor) {
+					const options = {};
+
+					if (editor.classList.contains('dark')) {
+						options.dark = true;
+					}
+
+					if (editor.dataset.lang) {
+						options[editor.dataset.lang] = true;
+					}
+
+					cm6.load().textarea(editor, options);
+				});
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<h2>Angular</h2>
+	<textarea class="codemirror" data-lang="angular">import { Component, OnInit } from '@angular/core';
+
+@Component({
+	selector: 'app-example',
+	templateUrl: './example.component.html',
+	styleUrls: ['./example.component.css']
+})
+export class ExampleComponent implements OnInit {
+	constructor() { }
+
+	ngOnInit() { }
+}</textarea>
+
+	<h2>C++</h2>
+	<textarea class="codemirror" data-lang="cpp">#include <iostream>
+
+int main() {
+    std::cout << "Hello World!";
+    return 0;
+}</textarea>
+
+	<h2>CSS</h2>
+	<textarea class="codemirror" data-lang="css">body {
+	background-image: url("https://mdn.mozillademos.org/files/11983/starsolid.gif");
+	background-repeat: repeat-y;
+}</textarea>
+
+	<h2>Go</h2>
+	<textarea class="codemirror" data-lang="go">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("hello world")
+}</textarea>
+
+	<h2>HTML</h2>
+	<textarea class="codemirror" data-lang="html"><!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World</title>
+    </head>
+    <body>
+        <p class="test">This is an example of a simple HTML page with one paragraph.</p>
+    </body>
+</html></textarea>
+
+	<h2>Java</h2>
+	<textarea class="codemirror" data-lang="java">class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</textarea>
+
+	<h2>JavaScript</h2>
+	<textarea class="codemirror" data-lang="javascript">import { createServer } from 'node:http';
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = createServer((req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'text/plain');
+	res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+	console.log(`Server running at http://${hostname}:${port}/`);
+});</textarea>
+
+	<h2>JSON</h2>
+	<textarea class="codemirror" data-lang="json">{
+	"glossary": {
+		"title": "example glossary",
+		"GlossDiv": {
+			"title": "S",
+			"GlossList": {
+				"GlossEntry": {
+					"ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+						"para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+					},
+					"GlossSee": "markup"
+				}
+			}
+		}
+	}
+}</textarea>
+
+	<h2>LESS</h2>
+	<textarea class="codemirror" data-lang="less">// Variables
+@themes:			"../../src/themes";
+@link-color:		#428bca; // sea blue
+@link-color-hover:	darken(@link-color, 10%);
+
+@import "@{themes}/tidal-wave.less";
+
+// Usage
+a,
+.link {
+	color: @link-color;
+}
+a:hover {
+	color: @link-color-hover;
+}
+
+nav ul {
+	&:extend(.inline);
+	background: blue;
+}
+.inline {
+	color: red;
+}
+
+p, a, ul, li {
+	border-top: 2px dotted #366;
+	& + & {
+		border-top: 0;
+	}
+}</textarea>
+
+	<h2>Liquid</h2>
+	<textarea class="codemirror" data-lang="liquid">{{ page.title }}
+
+{% if user %}
+	Hello {{ user.name }}!
+{% endif %}
+
+{% if product.title == "Awesome Shoes" %}
+	These shoes are awesome!
+{% endif %}
+
+{% for product in collection.products %}
+	{{ product.title }}
+{% endfor %}</textarea>
+
+	<h2>Markdown</h2>
+	<textarea class="codemirror" data-lang="markdown"># Heading level 1
+
+Paragraph text with **bold text**, *italic text* and ***bold italic text***
+
+## Heading level 2
+
+> This is a quote
+
+This is a `variable`
+
+This is a code block:
+
+```html
+<html>
+	<head>
+		<title>HTML test</title>
+	</head>
+</html>
+```
+
+- list item 1
+- list item 2
+
+1. Ordered list item 1
+2. Ordered list item 2
+
+***
+
+Alt Heading level 1
+===============
+
+Alt Heading level 2
+---------------</textarea>
+
+	<h2>Python</h2>
+	<textarea class="codemirror" data-lang="python">num1 = 1.5
+num2 = 6.3
+
+# Add two numbers
+sum = num1 + num2
+
+# Display the sum
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))</textarea>
+
+	<h2>Rust</h2>
+	<textarea class="codemirror" data-lang="rust">// This is the main function.
+fn main() {
+	let hello: &'static str = "Hello, world!";
+
+	// Print text to the console.
+	println!("{}", hello);
+}</textarea>
+
+	<h2>SASS</h2>
+	<textarea class="codemirror" data-lang="sass">$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		display: block;
+		padding: 6px 12px;
+		text-decoration: none;
+	}
+}</textarea>
+
+	<h2>SQL</h2>
+	<textarea class="codemirror" data-lang="sql">WITH employee_ranking AS (
+	SELECT
+		employee_id,
+		last_name,
+		first_name,
+		salary,
+		dept_id
+		RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS ranking
+	FROM employee
+)
+
+SELECT
+	dept_id,
+	employee_id,
+	last_name,
+	first_name,
+	salary
+FROM employee_ranking
+WHERE ranking = 2
+ORDER BY dept_id, last_name</textarea>
+
+	<h2>Vue</h2>
+	<textarea class="codemirror" data-lang="vue"><!--
+Say Hello World with Vue!
+-->
+
+<script setup>
+import { ref } from 'vue'
+
+// A "ref" is a reactive data source that stores a value.
+const message = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ message }}</h1>
+</template></textarea>
+
+	<h2>WebAssembly</h2>
+	<textarea class="codemirror" data-lang="wast">/* Example WebAssembly */
+(module $foo
+ (export "fac" (func $fac))
+ (export "plus" (func $plus))
+
+ (func $fac (type $t0) (param $p0 i64) (result i64)
+    (if $I0 (result i64)
+      (i64.lt_s
+        (local.get $p0)
+        (i64.const 1))
+      (then
+        (i64.const 1))
+      (else
+        (i64.mul
+          (local.get $p0)</textarea>
+
+	<h2>XML</h2>
+	<textarea class="codemirror" data-lang="xml"><!DOCTYPE glossary PUBLIC "-//OASIS//DTD DocBook V3.1//EN">
+<glossary>
+	<title>example glossary</title>
+	<GlossDiv>
+		<title>S</title>
+		<GlossList>
+			<GlossEntry ID="SGML" SortAs="SGML">
+				<GlossTerm>Standard Generalized Markup Language</GlossTerm>
+				<Acronym>SGML</Acronym>
+				<Abbrev>ISO 8879:1986</Abbrev>
+				<GlossDef>
+					<para>A meta-markup language, used to create markup languages such as DocBook.</para>
+					<GlossSeeAlso OtherTerm="GML">
+					<GlossSeeAlso OtherTerm="XML">
+				</GlossDef>
+				<GlossSee OtherTerm="markup">
+			</GlossEntry>
+		</GlossList>
+	</GlossDiv>
+</glossary></textarea>
+</body>
+</html>

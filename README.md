@@ -79,6 +79,14 @@ node ./build.js watch
 npm run watch
 ```
 
+To only build / watch certain languages, just include the name(s) after the command:
+
+```
+npm run build php
+// OR
+npm run watch java rust python
+```
+
 ## Additional languages
 
 I had a go at building a language mode for Ruby *(updating [this](https://github.com/sgtcoolguy/codemirror-lang-ruby) old repo that will no longer run)*, but I was unsuccessful and the error messages about lexer files were not helpful to me!
